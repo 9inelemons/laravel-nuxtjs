@@ -51,6 +51,25 @@ services:
     networks:
       - nginx-network
 
+  nuxt:
+    build:
+      context: ${ROOT_DIR}/src/nuxt
+      dockerfile: ${ROOT_DIR}/docker/nuxt/Dockerfile
+      target: 'develop-stage'
+    ports:
+      - "3000:3000"
+    container_name: ${APP_NAME}-nuxtjs
+    restart: unless-stopped
+    volumes:
+      - ${ROOT_DIR}/src/nuxt:/app
+      - /app/node_modules/
+    command: [ "npm", "run", "dev" ]
+    environment:
+     - CHOKIDAR_USEPOLLING=true
+    networks:
+     - nginx-network
+
 networks:
   db-network:
   nginx-network:
+    driver: bridge
