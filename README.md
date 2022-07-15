@@ -1,0 +1,1 @@
+# Laravel NuxtJS Project served in docker-compose
