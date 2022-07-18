@@ -32,7 +32,8 @@ services:
       MYSQL_PASSWORD: ${DB_PASSWORD}
       MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
     volumes:
-      - ${ROOT_DIR}/docker/mysql/:/var/lib/mysql/
+      - ${ROOT_DIR}/docker/mysql/data:/var/lib/mysql/
+      - ${ROOT_DIR}/docker/mysql/conf.d:/etc/mysql/conf.d
     networks:
       - db-network
 

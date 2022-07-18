@@ -15,4 +15,4 @@
 /.idea
 /.vscode
 /logs
-/docker/mysql
+/docker/mysql/data
